@@ -12,71 +12,25 @@
     # Controls system level software and settings including fonts
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+	pwnvim.url = "github:zmre/pwnvim";
+
   };
-  outputs = inputs: {
-    darwinConfigurations.Harshs-MacBook-Air = inputs.darwin.lib.darwinSystem {
+  outputs = inputs@{nixpkgs, home-manager, darwin, pwnvim, ...}: {
+    darwinConfigurations.Harshs-MacBook-Air = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-      pkgs = import inputs.nixpkgs {system = "aarch64-darwin";};
+      pkgs = import nixpkgs {system = "aarch64-darwin";};
       modules = [
-        ({pkgs, ...}: {
-          # here go the darwin preferences and config items
-          programs.zsh.enable = true;
-          environment.shells = [pkgs.bash pkgs.zsh];
-          environment.loginShell = pkgs.zsh;
-          environment.systemPackages = [pkgs.coreutils];
-          nix.extraOptions = ''
-            experimental-features = nix-command flakes
-          '';
-          system.keyboard.enableKeyMapping = true;
-          system.keyboard.remapCapsLockToEscape = true;
-          fonts.packages = [(pkgs.nerdfonts.override {fonts = ["Meslo"];})];
-          services.nix-daemon.enable = true;
-          system.defaults.finder.AppleShowAllExtensions = true;
-          system.defaults.finder._FXShowPosixPathInTitle = true;
-          system.defaults.dock.autohide = true;
-          system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
-          system.defaults.NSGlobalDomain.InitialKeyRepeat = 14;
-          system.defaults.NSGlobalDomain.KeyRepeat = 1;
-          # backwards compat; don't change
-          system.stateVersion = 4;
-        })
-        inputs.home-manager.darwinModules.home-manager
+	./modules/darwin
+        home-manager.darwinModules.home-manager
         {
           users.users.harshtiwari.home = "/Users/harshtiwari/";
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
+extraSpecialArgs = {inherit pwnvim;};
             users.harshtiwari.imports = [
-              ({pkgs, ...}: {
-                # Don't change this when you change package input. Leave it alone.
-                home.stateVersion = "22.11";
-
-                # specify my home-manager configs
-                home.packages = [pkgs.ripgrep pkgs.fd pkgs.curl pkgs.less];
-                home.sessionVariables = {
-                  PAGER = "less";
-                  CLICLOLOR = 1;
-                  EDITOR = "nvim";
-                };
-                programs.bat.enable = true;
-                programs.bat.config.theme = "TwoDark";
-                programs.fzf.enable = true;
-                programs.fzf.enableZshIntegration = true;
-                programs.eza.enable = true;
-                programs.git.enable = true;
-                programs.zsh.enable = true;
-                programs.zsh.enableCompletion = true;
-                programs.zsh.autosuggestion.enable = true;
-                programs.zsh.syntaxHighlighting.enable = true;
-                programs.zsh.shellAliases = {ls = "ls --color=auto -F";};
-                programs.starship.enable = true;
-                programs.starship.enableZshIntegration = true;
-                programs.alacritty = {
-                  enable = true;
-                  settings.font.normal.family = "MesloLGS Nerd Font Mono";
-                  settings.font.size = 16;
-                };
-              })
+./modules/home-manager	
             ];
           };
         }
