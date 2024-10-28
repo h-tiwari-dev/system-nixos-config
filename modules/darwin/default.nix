@@ -2,9 +2,9 @@
   # here go the darwin preferences and config items
   programs.zsh.enable = true;
   environment = {
-    shells = [pkgs.bash pkgs.zsh];
+    shells = with pkgs; [bash zsh xsel lazygit];
     loginShell = pkgs.zsh;
-    systemPackages = [pkgs.coreutils];
+    systemPackages = with pkgs; [coreutils vim tmux];
     systemPath = ["/opt/homebrew/bin"];
     pathsToLink = ["/Applications"];
   };

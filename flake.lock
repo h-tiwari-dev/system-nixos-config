@@ -223,15 +223,15 @@
         "onedarkpro": "onedarkpro"
       },
       "locked": {
-        "lastModified": 1726074055,
-        "narHash": "sha256-dhs7ri3RSAlAmd7iDRcWHknS93honid9FBlVB7m522Q=",
-        "owner": "zmre",
+        "lastModified": 1730104745,
+        "narHash": "sha256-H9nLx6dI8fDHM5QzlGMPOLiGoodndNWesLiRMNR5ikw=",
+        "owner": "h-tiwari-dev",
         "repo": "pwnvim",
-        "rev": "10e1aa4cb65732c1f9f43454ddf7bfccb1bab7a8",
+        "rev": "37137ed0a01f271f857c3c32e1643db99ef15191",
         "type": "github"
       },
       "original": {
-        "owner": "zmre",
+        "owner": "h-tiwari-dev",
         "repo": "pwnvim",
         "type": "github"
       }

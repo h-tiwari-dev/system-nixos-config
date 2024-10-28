@@ -13,24 +13,29 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-	pwnvim.url = "github:zmre/pwnvim";
-
+    pwnvim.url = "github:h-tiwari-dev/pwnvim";
   };
-  outputs = inputs@{nixpkgs, home-manager, darwin, pwnvim, ...}: {
+  outputs = inputs @ {
+    nixpkgs,
+    home-manager,
+    darwin,
+    pwnvim,
+    ...
+  }: {
     darwinConfigurations.Harshs-MacBook-Air = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       pkgs = import nixpkgs {system = "aarch64-darwin";};
       modules = [
-	./modules/darwin
+        ./modules/darwin
         home-manager.darwinModules.home-manager
         {
           users.users.harshtiwari.home = "/Users/harshtiwari/";
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-extraSpecialArgs = {inherit pwnvim;};
+            extraSpecialArgs = {inherit pwnvim;};
             users.harshtiwari.imports = [
-./modules/home-manager	
+              ./modules/home-manager
             ];
           };
         }
