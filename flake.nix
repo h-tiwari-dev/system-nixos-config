@@ -13,7 +13,7 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    pwnvim.url = "github:h-tiwari-dev/pwnvim";
+    pwnvim.url = "github:h-tiwari-dev/pwnvim?ref=a4ee371e94e4bfa35ed249cf78bff5d2c7be2d12";
   };
   outputs = inputs @ {
     nixpkgs,
@@ -24,7 +24,12 @@
   }: {
     darwinConfigurations.Harshs-MacBook-Air = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-      pkgs = import nixpkgs {system = "aarch64-darwin";};
+      pkgs = import nixpkgs {
+        system = "aarch64-darwin";
+        overlays = [(self: super: {inherit (self) allowUnfree;})];
+        config.allowUnfree = true; # Allow unfree packages
+      };
+
       modules = [
         ./modules/darwin
         home-manager.darwinModules.home-manager

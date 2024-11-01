@@ -30,6 +30,10 @@ in {
       PAGER = "less";
       CLICLOLOR = 1;
       EDITOR = "nvim";
+      MYSQL_USERNAME = "root";
+      MYSQL_PASSWORD = "password";
+      MYSQL_HOST = "localhost";
+      ENVIRONMENT = "dev";
     };
   };
   programs = {
@@ -49,6 +53,16 @@ in {
         nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
         nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd";
         lg = "lazygit";
+      };
+      sessionVariables = {
+        PAGER = "less";
+        CLICLOLOR = 1;
+        EDITOR = "nvim";
+        MYSQL_USERNAME = "root";
+        MYSQL_PASSWORD = "password";
+        MYSQL_HOST = "localhost";
+        ENVIRONMENT = "dev";
+        OBJC_DISABLE_INITIALIZE_FORK_SAFETY = "YES";
       };
     };
     starship.enable = true;
