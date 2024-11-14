@@ -4,7 +4,7 @@
   environment = {
     shells = with pkgs; [bash zsh xsel lazygit obsidian];
     loginShell = pkgs.zsh;
-    systemPackages = with pkgs; [coreutils vim tmux];
+    systemPackages = with pkgs; [coreutils vim tmux qbittorrent jdk];
     systemPath = ["/opt/homebrew/bin"];
     pathsToLink = ["/Applications"];
     variables = {
@@ -60,8 +60,11 @@
       "arc"
       "stremio"
       "whatsapp"
+      "vlc"
+      "brave-browser"
+      "docker"
     ];
-    taps = ["fujiapple852/trippy"];
+    taps = ["fujiapple852/trippy" "atlassian/tap"];
     brews = [
       "trippy"
       "gh"
@@ -69,6 +72,10 @@
       "python@3.10"
       "mysql"
       "redis"
+      "rust"
+      "neovim"
+      "tree"
+      "atlassian/tap/atlassian-plugin-sdk"
     ];
   };
 })

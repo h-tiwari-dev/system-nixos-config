@@ -23,6 +23,7 @@ in {
       fd
       curl
       less
+      jdk
       pwnvim.packages."aarch64-darwin".default
     ];
 
@@ -63,6 +64,7 @@ in {
         MYSQL_HOST = "localhost";
         ENVIRONMENT = "dev";
         OBJC_DISABLE_INITIALIZE_FORK_SAFETY = "YES";
+        PATH="$PATH:${pkgs.jdk}/lib/openjdk";
       };
     };
     starship.enable = true;

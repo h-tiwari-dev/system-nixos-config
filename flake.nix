@@ -13,7 +13,7 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    pwnvim.url = "github:h-tiwari-dev/pwnvim?ref=a4ee371e94e4bfa35ed249cf78bff5d2c7be2d12";
+    pwnvim.url = "github:h-tiwari-dev/pwnvim?ref=b7cd03c1093f7aabc5b0f0cf362a53fa27548c3d";
   };
   outputs = inputs @ {
     nixpkgs,
