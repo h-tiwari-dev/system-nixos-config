@@ -8,7 +8,6 @@
       jdk17
       google-chrome
     ];
-    
     sessionVariables = {
       PAGER = "less";
       CLICLOLOR = 1;
