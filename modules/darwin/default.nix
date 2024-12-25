@@ -31,6 +31,9 @@
       #   InitialKeyRepeat = 14;
       #   KeyRepeat = 1;
       # };
+      PAM = {
+        enableSudoTouchIdAuth = true;  # Enable Touch ID for sudo authentication
+      };
       dock = {
         autohide = true;
         orientation = "bottom";
