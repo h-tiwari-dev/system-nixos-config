@@ -177,9 +177,9 @@ tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
           set -g @catppuccin_status_background "default"
 
           # Window settings
-          set -g @catppuccin_window_left_separator ""
-          set -g @catppuccin_window_right_separator " "
-          set -g @catppuccin_window_middle_separator " █"
+          set -g @catppuccin_window_left_separator "█"
+          set -g @catppuccin_window_right_separator "█"
+          set -g @catppuccin_window_middle_separator "█"
           set -g @catppuccin_window_number_position "right"
           set -g @catppuccin_window_default_fill "number"
           set -g @catppuccin_window_default_text "#W"
@@ -208,10 +208,10 @@ tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
       }
     ];
     extraConfig = ''
-      # Set prefix to Ctrl-a
+      # Set prefix to Ctrl-s
       unbind C-b
-      set -g prefix C-a
-      bind C-a send-prefix
+      set -g prefix C-s
+      bind C-s send-prefix
 
       # Enable mouse support
       set -g mouse on
