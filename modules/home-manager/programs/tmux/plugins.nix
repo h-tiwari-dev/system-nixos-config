@@ -6,15 +6,15 @@ with pkgs.tmuxPlugins; [
   continuum
   {
     plugin = tmux-floax;
-    extraConfig = builtins.readFile ./floax-config.nix;
+    extraConfig = builtins.readFile ./floax-config.conf;
   }
   {
     plugin = tmux-sessionx;
-    extraConfig = builtins.readFile ./sessionx-config.nix;
+    extraConfig = builtins.readFile ./sessionx-config.conf;
   }
   {
     plugin = catppuccin;
-    extraConfig = builtins.readFile ./catppuccin-config.nix;
+    extraConfig = builtins.readFile ./catppuccin-config.conf;
   }
 ]
 

@@ -30,7 +30,7 @@ in {
     historyLimit = 10000;
     shell = "${pkgs.zsh}/bin/zsh";
     plugins = import ./tmux/plugins.nix { inherit pkgs tmux-sessionx tmux-floax; };
-    extraConfig = builtins.readFile ./tmux/extraConfig.nix;
+    extraConfig = builtins.readFile ./tmux/extraConfig.conf;
   };
 }
 

@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ./programs/tmux.nix
     ./programs/shell.nix
+    ./programs/tmux.nix
     ./programs/terminal.nix
     ./programs/git.nix
     ./programs/core.nix
@@ -20,12 +20,10 @@
       less
       jdk17
       google-chrome
-
       # macOS specific
       m-cli          # useful macOS CLI commands
       mas            # Mac App Store CLI
       # darwin-zsh-completions
-      
       # Development tools
       gh             # GitHub CLI
       jq             # JSON processor
@@ -33,19 +31,15 @@
       tree          # Directory listing
       wget
       gnupg         # For signing commits and encryption
-      
       # Archive tools
       unzip
       zip
-      
       # System monitoring
       htop
       bottom        # System monitor
-      
       # Network tools
       mtr           # Network diagnostic tool
       nmap          # Network exploration tool
-      
       # Cloud tools
       awscli2       # If you use AWS
       terraform     # If you use Infrastructure as Code
