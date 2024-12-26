@@ -26,7 +26,6 @@ tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
     ./programs/terminal.nix
     ./programs/git.nix
     ./programs/core.nix
-    ./programs/tmux.nix
   ];
 
   # Don't change this when you change package input. Leave it alone.
@@ -100,7 +99,26 @@ tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
       continuum
       {
         plugin = tmux-floax;
-        extraConfig = builtins.readFile ./programs/tmux/floax-config.nix;
+        extraConfig = ''
+          # Main binding for floating pane toggle (prefix + p)
+          set -g @floax-bind 'p'
+
+          # Menu binding for additional options (prefix + P)
+          set -g @floax-bind-menu 'P'
+
+          # Floating pane size
+          set -g @floax-width '80%'
+          set -g @floax-height '80%'
+
+          # Appearance
+          set -g @floax-border-color 'magenta'
+          set -g @floax-text-color 'blue'
+
+          # Behavior
+          set -g @floax-change-path 'true'
+          set -g @floax-session-name 'float'
+          set -g @floax-title '󱂬 floax'
+        '';
       }
       {
         plugin = tmux-sessionx;
