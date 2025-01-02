@@ -9,7 +9,6 @@ tmux-sessionx = pkgs.tmuxPlugins.mkTmuxPlugin {
     sha256 = "1qa2a4m75w6k64f52fsw9k6yyiidlxm2q31w8hrsjd5bcdr6dzab";
   };
 };
-
 tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
   pluginName = "floax";
   version = "unstable-2024-02-20";
@@ -26,6 +25,7 @@ tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
     ./programs/terminal.nix
     ./programs/git.nix
     ./programs/core.nix
+    ./programs/yazi.nix
   ];
 
   # Don't change this when you change package input. Leave it alone.

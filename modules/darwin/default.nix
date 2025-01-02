@@ -2,9 +2,9 @@
   # here go the darwin preferences and config items
   programs.zsh.enable = true;
   environment = {
-    shells = with pkgs; [bash zsh xsel lazygit obsidian];
+    shells = with pkgs; [zsh bash xsel lazygit obsidian];
     # loginShell = pkgs.zsh;
-    systemPackages = with pkgs; [coreutils vim tmux qbittorrent jdk17 nodejs_20 go tmux];
+    systemPackages = with pkgs; [coreutils vim tmux qbittorrent jdk17 nodejs_20 go];
     systemPath = ["/opt/homebrew/bin"];
     pathsToLink = ["/Applications"];
     variables = {

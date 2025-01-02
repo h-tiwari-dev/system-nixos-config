@@ -17,27 +17,30 @@
         if [ -z "$TMUX" ]; then
           exec tmux new-session -A -s main
         fi
+
+        eval "$(zoxide init --cmd cd zsh)"
       '';
       shellAliases = {
         ls = "ls --color=auto -F";
         nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
         nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd";
         lg = "lazygit";
+        vim = "nvim";
       };
     };
-    
     starship.enable = true;
     starship.enableZshIntegration = true;
-    
     bat.enable = true;
     bat.config.theme = "TwoDark";
-    
     fzf = {
       enable = true;
       enableZshIntegration = true;
     };
-    
     eza.enable = true;
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
   };
 
   home.file.".inputrc".source = ../dotfiles/inputrc;

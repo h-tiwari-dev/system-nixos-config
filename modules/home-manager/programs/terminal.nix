@@ -5,7 +5,6 @@
       settings.font.normal.family = "MesloLGS Nerd Font Mono";
       settings.font.size = 16;
     };
-    
     wezterm = {
       enable = true;
       enableZshIntegration = true;
