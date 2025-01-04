@@ -2,6 +2,8 @@
 
 A modern, declarative macOS system configuration using nix-darwin and home-manager. This setup provides a reproducible development environment with automated system preferences, application installations, and dotfile management.
 
+![Nix Darwin Setup](./Preview.png)
+
 ## Features
 
 - 🍎 Automated macOS system preferences and defaults

@@ -26,6 +26,7 @@
         nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd";
         lg = "lazygit";
         vim = "nvim";
+        y = "yazi";
       };
     };
     starship.enable = true;

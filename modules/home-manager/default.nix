@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs,  ...}: let
 tmux-sessionx = pkgs.tmuxPlugins.mkTmuxPlugin {
   pluginName = "sessionx";
   version = "unstable-2024-01-20";
@@ -25,7 +25,6 @@ tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
     ./programs/terminal.nix
     ./programs/git.nix
     ./programs/core.nix
-    ./programs/yazi.nix
   ];
 
   # Don't change this when you change package input. Leave it alone.
@@ -37,6 +36,7 @@ tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
   home = {
     packages = with pkgs; [
       # Core utils
+      yazi  # Modern file manager
       ripgrep
       fd
       curl
@@ -146,8 +146,8 @@ tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
           set -g @sessionx-zoxide-mode 'on'
 
           # Custom paths and behavior
-          set -g @sessionx-custom-paths-subdirectories 'true'
-          set -g @sessionx-custom-paths '/Users/harshtiwari/src,/Users/harshtiwari/src/nixos-config,/Users/harshtiwari/src/nvim,/Users/harshtiwari/src/pwnvim,/Users/harshtiwari/src/system-config,/Users/harshtiwari/dev,/Users/harshtiwari/dev/harsh,/Users/harshtiwari/dev/harsh/advent-of-code,/Users/harshtiwari/dev/harsh/chrome-ai-tabs,/Users/harshtiwari/dev/harsh/codecrafters-git-rust,/Users/harshtiwari/dev/harsh/leetcode,/Users/harshtiwari/dev/harsh/resume,/Users/harshtiwari/dev/kusho,/Users/harshtiwari/dev/kusho/backend,/Users/harshtiwari/dev/kusho/frontend,/Users/harshtiwari/dev/kusho/kusho-ai-docs,/Users/harshtiwari/dev/kusho/ui,/Users/harshtiwari/dev/kusho/frontend/kusho-new-dashboard'
+          set -g @sessionx-custom-paths '/Users/harshtiwari/src,/Users/harshtiwari/src/nixos-config,/Users/harshtiwari/src/nvim,/Users/harshtiwari/src/pwnvim,/Users/harshtiwari/src/system-config,/Users/harshtiwari/dev,/Users/harshtiwari/dev/harsh,/Users/harshtiwari/dev/harsh/advent-of-code,/Users/harshtiwari/dev/harsh/leetcode,/Users/harshtiwari/dev/harsh/resume,/Users/harshtiwari/dev/kusho,/Users/harshtiwari/dev/kusho/backend,/Users/harshtiwari/dev/kusho/frontend,/Users/harshtiwari/dev/kusho/kusho-ai-docs,/Users/harshtiwari/dev/kusho/ui,/Users/harshtiwari/dev/kusho/frontend/kusho-new-dashboard'
+          set -g @sessionx-zoxide-mode 'on'
           set -g @sessionx-x-path '$HOME/.config'
 
           # Key bindings
@@ -172,21 +172,19 @@ tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
           set -g @catppuccin_window_right_separator " "
           set -g @catppuccin_window_middle_separator " █"
           set -g @catppuccin_window_number_position "right"
-
           set -g @catppuccin_window_default_fill "number"
           set -g @catppuccin_window_default_text "#W"
-
           set -g @catppuccin_window_current_fill "number"
-          set -g @catppuccin_window_current_text "#W"
-
-          set -g @catppuccin_status_modules_right "directory user host session"
+          set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
+          set -g @catppuccin_status_modules_right "directory date_time"
+          set -g @catppuccin_status_modules_left "session"
           set -g @catppuccin_status_left_separator  " "
-          set -g @catppuccin_status_right_separator ""
+          set -g @catppuccin_status_right_separator " "
           set -g @catppuccin_status_right_separator_inverse "no"
           set -g @catppuccin_status_fill "icon"
           set -g @catppuccin_status_connect_separator "no"
-
-          set -g @catppuccin_directory_text "#{pane_current_path}"
+          set -g @catppuccin_directory_text "#{b:pane_current_path}"
+          set -g @catppuccin_date_time_text "%H:%M"
         '';
       }
     ];
@@ -282,4 +280,20 @@ tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
     '';
   };
   home.file.".inputrc".source = ./dotfiles/inputrc;
+
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      manager = {
+        show_hidden = false;
+        sort_by = "modified";
+        sort_reverse = true;
+      };
+      preview = {
+        max_width = 2048;
+        max_height = 2048;
+      };
+    };
+  };
 }

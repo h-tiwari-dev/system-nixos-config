@@ -95,10 +95,10 @@
       "whatsapp"
       "vlc"
       "brave-browser"
-      "docker"
       "chromium"
       "karabiner-elements"  # Keyboard customization
       "rectangle"    # Window management
+      "docker"
     ];
     taps = [
       "fujiapple852/trippy"
