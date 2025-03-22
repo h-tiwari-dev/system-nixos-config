@@ -4,7 +4,7 @@
   environment = {
     shells = with pkgs; [zsh bash xsel lazygit obsidian];
     # loginShell = pkgs.zsh;
-    systemPackages = with pkgs; [coreutils vim tmux qbittorrent jdk17 nodejs_20 go];
+    systemPackages = with pkgs; [coreutils vim tmux qbittorrent jdk17 nodejs_20 go poetry];
     systemPath = ["/opt/homebrew/bin"];
     pathsToLink = ["/Applications"];
     variables = {
@@ -99,6 +99,10 @@
       "karabiner-elements"  # Keyboard customization
       "rectangle"    # Window management
       "docker"
+      "qbittorrent"
+      "discord"
+      "ghostty"
+      "hammerspoon"
     ];
     taps = [
       "fujiapple852/trippy"
@@ -116,6 +120,7 @@
       "tree"
       "atlassian/tap/atlassian-plugin-sdk"
       "fswatch"
+      "ffmpeg"
     ];
   };
 })
