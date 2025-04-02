@@ -22,8 +22,8 @@
       '';
       shellAliases = {
         ls = "ls --color=auto -F";
-        nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
-        nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd";
+        nixswitch = "darwin-rebuild switch --flake ~/system-nixos/.#";
+        nixup = "pushd ~/system-nixos; nix flake update; nixswitch; popd";
         lg = "lazygit";
         vim = "nvim";
         y = "yazi";

@@ -19,7 +19,7 @@
     darwin,
     ...
   }: {
-    darwinConfigurations.Harshs-MacBook-Air = darwin.lib.darwinSystem {
+    darwinConfigurations.Harshs-MacBook-Air-2 = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       pkgs = import nixpkgs {
         system = "aarch64-darwin";

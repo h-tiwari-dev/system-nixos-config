@@ -85,7 +85,7 @@
     casks = [
       "raycast"
       "monitorcontrol"
-      "wezterm"
+      "ghostty"
       "1password@nightly"
       "slack"
       "obsidian"
@@ -99,6 +99,8 @@
       "karabiner-elements"  # Keyboard customization
       "rectangle"    # Window management
       "docker"
+      "monitorcontrol"
+
     ];
     taps = [
       "fujiapple852/trippy"
@@ -108,7 +110,7 @@
     brews = [
       "trippy"
       "gh"
-      "python@3.10"
+      "python@3.11"
       "mysql"
       "redis"
       "rust"
@@ -116,6 +118,7 @@
       "tree"
       "atlassian/tap/atlassian-plugin-sdk"
       "fswatch"
+      "pipenv"
     ];
   };
 })

@@ -146,7 +146,7 @@ tmux-floax = pkgs.tmuxPlugins.mkTmuxPlugin {
           set -g @sessionx-zoxide-mode 'on'
 
           # Custom paths and behavior
-          set -g @sessionx-custom-paths '/Users/harshtiwari/src,/Users/harshtiwari/src/nixos-config,/Users/harshtiwari/src/nvim,/Users/harshtiwari/src/pwnvim,/Users/harshtiwari/src/system-config,/Users/harshtiwari/dev,/Users/harshtiwari/dev/harsh,/Users/harshtiwari/dev/harsh/advent-of-code,/Users/harshtiwari/dev/harsh/leetcode,/Users/harshtiwari/dev/harsh/resume,/Users/harshtiwari/dev/kusho,/Users/harshtiwari/dev/kusho/backend,/Users/harshtiwari/dev/kusho/frontend,/Users/harshtiwari/dev/kusho/kusho-ai-docs,/Users/harshtiwari/dev/kusho/ui,/Users/harshtiwari/dev/kusho/frontend/kusho-new-dashboard'
+          set -g @sessionx-custom-paths '/Users/harshtiwari/Documents/AI-Youtube-Shorts-Generator,/Users/harshtiwari/Documents/obsidian,/Users/harshtiwari/Documents/resume,/Users/harshtiwari/Documents/wellnessliving,/Users/harshtiwari/Documents/wellnessliving/concerto-cerebrum,/Users/harshtiwari/Documents/wellnessliving/concerto-ripples'
           set -g @sessionx-zoxide-mode 'on'
           set -g @sessionx-x-path '$HOME/.config'
 
