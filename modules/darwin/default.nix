@@ -70,17 +70,16 @@
     };
   };
     
-  fonts.packages = [(pkgs.nerdfonts.override {fonts = ["Meslo"];})];
-  services.nix-daemon.enable = true;
+  fonts.packages = [pkgs.nerd-fonts.meslo-lg];
   # backwards compat; don't change
-  system.stateVersion = 4;
+  system.stateVersion = 5;
   system.activationScripts.extraActivation.text = ''
     softwareupdate --install-rosetta --agree-to-license
   '';
   homebrew = {
     enable = true;
     caskArgs.no_quarantine = true;
-    global.brewfile = true;
+    global.brewfile = false;
     masApps = {};
     casks = [
       "raycast"
@@ -99,18 +98,19 @@
       "karabiner-elements"  # Keyboard customization
       "rectangle"    # Window management
       "docker"
-      "monitorcontrol"
-
+      "wezterm"     # Terminal emulator
     ];
     taps = [
       "fujiapple852/trippy"
       "atlassian/tap"
-      "homebrew/services"
+      "homebrew/bundle"
     ];
     brews = [
-      "trippy"
+      "fujiapple852/trippy/trippy"  # Using full formula name to avoid conflicts
       "gh"
+      "python@3.10"
       "python@3.11"
+      "pnpm"
       "mysql"
       "redis"
       "rust"
