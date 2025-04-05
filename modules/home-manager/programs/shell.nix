@@ -13,11 +13,6 @@
           set +a
         fi
 
-        # Auto-start tmux
-        if [ -z "$TMUX" ]; then
-          exec tmux new-session -A -s main
-        fi
-
         eval "$(zoxide init --cmd cd zsh)"
       '';
       shellAliases = {

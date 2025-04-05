@@ -79,7 +79,7 @@
   homebrew = {
     enable = true;
     caskArgs.no_quarantine = true;
-    global.brewfile = false;
+    global.brewfile = false;  # Disable Brewfile management
     masApps = {};
     casks = [
       "raycast"
@@ -103,7 +103,6 @@
     taps = [
       "fujiapple852/trippy"
       "atlassian/tap"
-      "homebrew/bundle"
     ];
     brews = [
       "fujiapple852/trippy/trippy"  # Using full formula name to avoid conflicts
